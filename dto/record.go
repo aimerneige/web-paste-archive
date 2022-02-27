@@ -18,8 +18,8 @@ type RecordRequestDto struct {
 }
 
 // CreateRecordResponseDto create record response dto with record
-func CreateRecordResponseDto(record *model.Record) *RecordResponseDto {
-	return &RecordResponseDto{
+func CreateRecordResponseDto(record model.Record) RecordResponseDto {
+	return RecordResponseDto{
 		ID:         record.ID,
 		Content:    record.Content,
 		Title:      record.Title,
