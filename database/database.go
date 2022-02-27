@@ -1,6 +1,9 @@
 package database
 
-import "gorm.io/gorm"
+import (
+	"github.com/aimerneige/web-paste/model"
+	"gorm.io/gorm"
+)
 
 var DB *gorm.DB
 
@@ -10,7 +13,7 @@ type DatabaseInterface interface {
 
 // InitDatabase init database
 func InitDatabase(dbi DatabaseInterface) {
-	db, err := dbi.InitDB()
+	db, err := dbi.InitDB(&model.Record{})
 	if err != nil {
 		panic(err)
 	}
