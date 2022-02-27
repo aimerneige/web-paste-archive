@@ -13,7 +13,10 @@ type DatabaseInterface interface {
 
 // InitDatabase init database
 func InitDatabase(dbi DatabaseInterface) {
-	db, err := dbi.InitDB(&model.Record{})
+	db, err := dbi.InitDB(
+		&model.Record{},
+		&model.Blacklist{},
+	)
 	if err != nil {
 		panic(err)
 	}
