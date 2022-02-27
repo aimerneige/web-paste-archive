@@ -12,6 +12,11 @@ type RecordResponseDto struct {
 	RawLink    string `json:"raw_link"`
 }
 
+type RecordRequestDto struct {
+	Content string `json:"content"`
+	Title   string `json:"title"`
+}
+
 // CreateRecordResponseDto create record response dto with record
 func CreateRecordResponseDto(record *model.Record) *RecordResponseDto {
 	return &RecordResponseDto{
