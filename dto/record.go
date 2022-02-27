@@ -1,6 +1,9 @@
 package dto
 
-import "github.com/aimerneige/web-paste/model"
+import (
+	"github.com/aimerneige/web-paste/model"
+	"github.com/spf13/viper"
+)
 
 type RecordResponseDto struct {
 	ID         uint   `json:"id"`
@@ -19,13 +22,16 @@ type RecordRequestDto struct {
 
 // CreateRecordResponseDto create record response dto with record
 func CreateRecordResponseDto(record model.Record) RecordResponseDto {
+	baseUrl := viper.GetString("common.base")
+	shortLink := baseUrl + record.ShortLink
+	rawLink := baseUrl + "raw/" + record.RawLink
 	return RecordResponseDto{
 		ID:         record.ID,
 		Content:    record.Content,
 		Title:      record.Title,
 		CreateTime: record.CreateTime,
 		ExpireTime: record.ExpireTime,
-		ShortLink:  record.ShortLink,
-		RawLink:    record.RawLink,
+		ShortLink:  shortLink,
+		RawLink:    rawLink,
 	}
 }
