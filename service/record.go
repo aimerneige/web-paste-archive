@@ -10,7 +10,7 @@ import (
 // InsertNewRecord insert new record
 func InsertNewRecord(record model.Record) (err error) {
 	db := database.GetDB()
-	err = db.Create(record).Error
+	err = db.Create(&record).Error
 
 	return
 }
