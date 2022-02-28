@@ -18,7 +18,7 @@ func CreateNewRecord(c *gin.Context) {
 	content := c.GetString("content")
 	title := c.GetString("title")
 	createTime := time.Now().Unix()
-	expireTime := createTime + 3600
+	expireTime := createTime + 3600*24
 	userIP := c.ClientIP()
 	userAgent := c.GetHeader("User-Agent")
 	shortLink := utils.GetRandomShortLink(6)
