@@ -1,5 +1,5 @@
 common:
-  port: 8080
+  port: 80
   path: /root/example/static/
   base: https://example.com/
 mysql:
