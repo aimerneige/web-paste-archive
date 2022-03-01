@@ -10,7 +10,7 @@ func AppRouteCollection(r *gin.Engine) *gin.Engine {
 	r.StaticFS("/static", gin.Dir("app/static", true))
 
 	r.GET("/", controller.AppIndex)
-	r.GET("/:id", controller.AppAccess)
+	r.GET("/:link", controller.AppAccess)
 
 	return r
 }
