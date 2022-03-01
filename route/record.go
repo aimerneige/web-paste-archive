@@ -11,9 +11,9 @@ func RecordRouteCollection(g *gin.RouterGroup) {
 		middleware.RecordCreateRequestCheck(),
 		controller.CreateNewRecord)
 
-	g.GET("/:id",
-		middleware.RecordPathIDCheck(),
-		controller.GetRecordByID)
+	g.GET("/:link",
+		middleware.RecordPathLinkCheck(),
+		controller.GetRecordByShortLink)
 
 	g.DELETE("/:id",
 		middleware.RecordPathIDCheck(),

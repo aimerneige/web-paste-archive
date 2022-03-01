@@ -15,14 +15,6 @@ func InsertNewRecord(record model.Record) (err error) {
 	return
 }
 
-// GetRecordByID get record by id
-func GetRecordByID(id uint) (record model.Record, err error) {
-	db := database.GetDB()
-	err = db.First(&record, id).Error
-
-	return
-}
-
 // GetRecordByShortLink get record by short link
 func GetRecordByShortLink(shortLink string) (record model.Record, err error) {
 	db := database.GetDB()

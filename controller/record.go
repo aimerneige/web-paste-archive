@@ -52,18 +52,18 @@ func CreateNewRecord(c *gin.Context) {
 	response.Created(c, dto, "Success to create new record.")
 }
 
-// GetRecordByID get record by id
-func GetRecordByID(c *gin.Context) {
-	id := c.GetUint("id")
+// GetRecordByShortLink get record by id
+func GetRecordByShortLink(c *gin.Context) {
+	link := c.GetString("link")
 
-	record, err := service.GetRecordByID(id)
+	record, err := service.GetRecordByShortLink(link)
 	if err != nil {
-		response.NotFound(c, err, "Fail to get record by id.")
+		response.InternalServerError(c, err, "Fail to get record by short link.")
 		return
 	}
 
 	dto := dto.CreateRecordResponseDto(record)
-	response.OK(c, dto, "Success to get record by id.")
+	response.OK(c, dto, "Success to get record by short link.")
 }
 
 // DeleteRecordByID delete record by id

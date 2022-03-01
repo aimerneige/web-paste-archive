@@ -47,3 +47,18 @@ func RecordPathIDCheck() gin.HandlerFunc {
 		c.Next()
 	}
 }
+
+// RecordPathLinkCheck check path link
+func RecordPathLinkCheck() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		link := c.Param("link")
+		if link == "" {
+			response.BadRequest(c, nil, "Link is required.")
+			c.Abort()
+			return
+		}
+
+		c.Set("link", link)
+		c.Next()
+	}
+}
