@@ -23,6 +23,14 @@ func GetRecordByID(id uint) (record model.Record, err error) {
 	return
 }
 
+// GetRecordByShortLink get record by short link
+func GetRecordByShortLink(shortLink string) (record model.Record, err error) {
+	db := database.GetDB()
+	err = db.Where("short_link = ?", shortLink).First(&record).Error
+
+	return
+}
+
 // DeleteRecordByID delete record by id
 func DeleteRecordByID(id uint) (err error) {
 	db := database.GetDB()
