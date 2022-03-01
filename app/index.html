@@ -38,41 +38,45 @@
     <!-- Title -->
     <div class="mdui-textfield mdui-textfield-floating-label">
       <label class="mdui-textfield-label">Title</label>
-      <input class="mdui-textfield-input" type="text" />
+      <input class="mdui-textfield-input" type="text" id="title" />
     </div>
     <!-- Content -->
     <div class="mdui-textfield mdui-textfield-floating-label mdui-typo">
       <label class="mdui-textfield-label">Content</label>
-      <textarea class="mdui-textfield-input" rows="12"></textarea>
+      <textarea class="mdui-textfield-input" rows="12" id="content"></textarea>
     </div>
     <!-- README -->
     <div class="mdui-typo mdui-m-b-3 mdui-p-a-1">
       <h2>Read Before Use</h2>
       <ol>
+        <li>Anyone with a share link can access or delete your text.</li>
         <li>Your text will be deleted after 24 hours automatically.</li>
         <li>Please don't use this service for illegal purposes.</li>
-        <li>Anyone with a share link can access your text.</li>
         <li>Abuse will cause your IP to be banned forever.</li>
         <li>This service will end at any time for no reason.</li>
         <li>Your data will be deleted at any time for no reason.</li>
+        <li>The developer does not responsible for your data loss.</li>
+        <li>If you want more reliable service, deploy your service.</li>
       </ol>
     </div>
     <!-- Submit -->
     <div class="mdui-m-x-2 mdui-m-b-3">
-      <button class="mdui-btn mdui-color-pink mdui-ripple mdui-hoverable">
+      <button class="mdui-btn mdui-color-pink mdui-ripple mdui-hoverable" onclick="publish()">
         Publish
       </button>
-      <div class="mdui-chip mdui-m-a-1">
-        <span class="mdui-chip-title">Share Link: https://aimerneige.com/example</span>
-      </div>
-      <div class="mdui-chip mdui-m-a-1">
-        <span class="mdui-chip-title">Raw Link: https://aimerneige.com/raw/example.txt</span>
-      </div>
+    </div>
+  </div>
+
+  <!-- Dialog -->
+  <div class="mdui-dialog" id="dialog">
+    <div class="mdui-dialog-content" id="dialog-content"></div>
+    <div class="mdui-dialog-actions">
+      <button class="mdui-btn mdui-ripple" mdui-dialog-close>confirm</button>
     </div>
   </div>
 
   <!-- Copyright -->
-  <div class="copyright">
+  <div class=" copyright">
     <span>© 2022 <a href="https://paste.aimerneige.com/">Web Paste</a></span>
     <span>
       Powered by
@@ -82,6 +86,7 @@
   </div>
 
   <!-- Script -->
+  <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/js/mdui.min.js"></script>
   <script src="./static/js/publish.js"></script>
 </body>
