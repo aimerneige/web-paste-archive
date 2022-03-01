@@ -8,6 +8,9 @@ import (
 )
 
 func AllRouteCollection(r *gin.Engine) *gin.Engine {
+	r.SetTrustedProxies([]string{
+		"127.0.0.1",
+	})
 	r.Use(middleware.BlackListMiddleware())
 
 	record := r.Group("/record")
@@ -15,6 +18,8 @@ func AllRouteCollection(r *gin.Engine) *gin.Engine {
 
 	staticPath := viper.GetString("common.path")
 	r.Static("/raw", staticPath)
+
+	AppRouteCollection(r)
 
 	r.NoRoute(controller.NotFound)
 
