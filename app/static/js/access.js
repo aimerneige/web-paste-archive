@@ -9,5 +9,9 @@ $.ajax({
     $('#title').text(title);
     let content = data['data']['content'];
     $('#content').text(content);
+  },
+  error: function (data) {
+    $('#title').text('404');
+    $('#content').text('Fail to get data, please check the URL.\nNote that your data will be deleted after 24 hours.');
   }
 });
