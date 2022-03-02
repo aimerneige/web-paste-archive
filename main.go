@@ -6,10 +6,14 @@ import (
 	"github.com/aimerneige/web-paste/route"
 	"github.com/gin-gonic/gin"
 	"github.com/spf13/viper"
+	"log"
 )
 
 func main() {
-	config.InitConfig("config", "yml", "./config")
+	err := config.InitConfig("config", "yml", "./config")
+	if err != nil {
+		log.Fatal("Fail to read config file.")
+	}
 	database.InitDatabase(database.MysqlDatabase{
 		UserName: viper.GetString("mysql.username"),
 		Password: viper.GetString("mysql.password"),
